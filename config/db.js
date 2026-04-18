@@ -3,11 +3,11 @@ require('dotenv').config();
 
 // ── Conexión principal ────────────────────────────────────
 const db = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'noelia1234',
-  database : 'noelias_glamour',
-  port     : 3306,
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASSWORD,
+  database : process.env.DB_NAME,
+  port     : process.env.DB_PORT || 3306,
 });
 
 db.connect((err) => {
@@ -17,11 +17,11 @@ db.connect((err) => {
 
 // ── Conexión TSE ──────────────────────────────────────────
 const dbTSE = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'noelia1234',
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASSWORD,
   database : 'tse_db',
-  port     : 3306,
+  port     : process.env.DB_PORT || 3306,
 });
 
 dbTSE.connect((err) => {
@@ -31,11 +31,11 @@ dbTSE.connect((err) => {
 
 // ── Conexión Banco ────────────────────────────────────────
 const dbBanco = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'noelia1234',
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASSWORD,
   database : 'banco_db',
-  port     : 3306,
+  port     : process.env.DB_PORT || 3306,
 });
 
 dbBanco.connect((err) => {
